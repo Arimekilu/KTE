@@ -8,6 +8,7 @@ import {AllItemsComponent} from "./components/all-items/all-items.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatInputModule} from "@angular/material/input";
     ItemsRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class ItemsModule { }
