@@ -19,7 +19,9 @@ export class AllItemsComponent implements OnInit{
   }
 
 
-
-
-
+  getItem(id: string) {
+     this.itemsService.getItemById$(id).subscribe((res) => {
+       console.log(res)
+     })
+  }
 }

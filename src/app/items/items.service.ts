@@ -1,14 +1,30 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {myItem} from "./item.interface";
-import {map} from "rxjs";
+import {map, Observable} from "rxjs";
 
 @Injectable()
 
 export class ItemsService {
   constructor(private http: HttpClient) {
   }
-  private getAllItems () {
+
+  private getItemById (id: string): Observable<myItem> {
+    return this.http.get<myItem>(`https://autorepair-c20c6-default-rtdb.europe-west1.firebasedatabase.app/items/${id}.json`).pipe(
+      map((response) => {
+        return {
+          ...response,
+          id: id
+        }
+      })
+    )
+  }
+
+  public getItemById$ (id: string) {
+    return this.getItemById(id)
+  }
+
+  private getAllItems (): Observable<myItem[]> {
     return this.http.get('https://autorepair-c20c6-default-rtdb.europe-west1.firebasedatabase.app/items.json').pipe(
       map((response: { [key: string]: any }) => {
         return Object.keys(response).map((key) => ({
