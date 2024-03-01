@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ItemsRoutingModule } from './items-routing.module';
 import {CreateItemComponent} from "./components/create-item/create-item.component";
 import {ItemComponent} from "./components/item/item.component";
@@ -9,6 +8,9 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ItemsService} from "./items.service";
+import {HttpClientModule} from "@angular/common/http";
+
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    HttpClientModule
+
+  ],
+  providers: [ItemsService, HttpClientModule, ]
 })
 export class ItemsModule { }
