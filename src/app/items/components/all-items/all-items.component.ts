@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemsService} from "../../items.service";
 import {myItem} from "../../item.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-all-items',
@@ -9,7 +10,7 @@ import {myItem} from "../../item.interface";
 })
 export class AllItemsComponent implements OnInit{
   items?: myItem[]
-  constructor(private itemsService: ItemsService) {
+  constructor(private itemsService: ItemsService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -18,6 +19,9 @@ export class AllItemsComponent implements OnInit{
     })
   }
 
+  public navigateToItem(id: string) {
+    this.router.navigate(['item', id])
+  }
 
   getItem(id: string) {
      this.itemsService.getItemById$(id).subscribe((res) => {
