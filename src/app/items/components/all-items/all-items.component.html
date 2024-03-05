@@ -1,3 +1,6 @@
 <div class="itemsContainer">
-  <app-item *ngFor="let item of items" [item]="item" (click)="navigateToItem(item.id)" ></app-item>
+  <mat-card *ngFor="let item of items" class="itemCardShort" (click)="navigateToItem(item.id)">
+    <mat-card-title>{{item.title}}</mat-card-title>
+    <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
+  </mat-card>
 </div>

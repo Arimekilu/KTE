@@ -5,7 +5,7 @@ import {AppComponent} from "./app.component";
 const routes: Routes = [
   {
     path: '',
-    pathMatch: "full",
+    pathMatch: 'full',
     component: AppComponent
   },
   {

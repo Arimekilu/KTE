@@ -46,4 +46,12 @@ export class ItemsService {
     return this.setItem(item)
   }
 
+  private deleteItem (id: string) {
+    return this.http.delete(`https://autorepair-c20c6-default-rtdb.europe-west1.firebasedatabase.app/items/${id}.json`)
+  }
+
+  public deleteItem$ (id: string) {
+    return this.deleteItem(id)
+  }
+
 }

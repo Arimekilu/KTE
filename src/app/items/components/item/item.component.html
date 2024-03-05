@@ -1,4 +1,4 @@
-<mat-card *ngIf="item" class="itemCard">
+<mat-card *ngIf="item" class="itemCardFull">
   <mat-card-header>
     <mat-card-title>{{item.title}}</mat-card-title>
     <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
@@ -8,8 +8,6 @@
     <p>{{item.content}}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-    <button mat-button color="warn">DELETE</button>
+    <button mat-button color="warn" (click)="deleteItem(item.id)">DELETE</button>
   </mat-card-actions>
 </mat-card>

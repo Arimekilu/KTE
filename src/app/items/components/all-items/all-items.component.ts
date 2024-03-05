@@ -12,20 +12,13 @@ export class AllItemsComponent implements OnInit{
   items?: myItem[]
   constructor(private itemsService: ItemsService, private router: Router) {
   }
-
   ngOnInit(): void {
     this.itemsService.allItems$().subscribe((items) => {
       this.items = items
     })
   }
-
   public navigateToItem(id: string) {
-    this.router.navigate(['item', id])
+    this.router.navigate(['items/item', id])
   }
 
-  getItem(id: string) {
-     this.itemsService.getItemById$(id).subscribe((res) => {
-       console.log(res)
-     })
-  }
 }

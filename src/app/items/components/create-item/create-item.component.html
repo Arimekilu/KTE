@@ -1,20 +1,43 @@
 <form class="createItemForm" [formGroup]="createItemForm">
+
   <mat-form-field>
     <mat-label>Заголовок</mat-label>
     <input matInput placeholder="Введите заголовок" formControlName="title">
   </mat-form-field>
+  <div class="error" *ngIf="createItemForm.get('title')?.errors && createItemForm.get('title')?.touched ">
+    <pre>{{createItemForm.get('title')?.errors| json}}</pre>
+  </div>
 
   <mat-form-field>
     <mat-label>Подзаголовок</mat-label>
     <input matInput placeholder="Введите подзаголовок" formControlName="subtitle">
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
+  <div class="error" *ngIf="createItemForm.get('subtitle')?.errors && createItemForm.get('subtitle')?.touched ">
+    <pre>{{createItemForm.get('subtitle')?.errors| json}}</pre>
+  </div>
+
+  <mat-form-field>
     <mat-label>Контент</mat-label>
     <textarea matInput placeholder="Введите текст" formControlName="content"></textarea>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" [disabled]="createItemForm.invalid" (click)="submit()">Добавить
+  <div class="error" *ngIf="createItemForm.get('content')?.errors && createItemForm.get('content')?.touched ">
+    <pre>{{createItemForm.get('content')?.errors| json}}</pre>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Введите 42</mat-label>
+    <input matInput type="number" placeholder="Введите 42" formControlName="number42">
+  </mat-form-field>
+
+  <div class="error" *ngIf="createItemForm.get('number42')?.errors && createItemForm.get('number42')?.touched ">
+    <pre>{{createItemForm.get('number42')?.errors| json}}</pre>
+  </div>
+
+  <button mat-raised-button color="primary" [disabled]="createItemForm.invalid || isBtnDisabled" (click)="submit()">
+    Добавить
   </button>
+
 </form>
 

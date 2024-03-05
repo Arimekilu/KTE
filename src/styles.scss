@@ -1,2 +1,28 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.itemsContainer {
+  width: 600px;
+  margin: 0 auto;
+}
+
+
+.itemCardShort {
+  width: 400px;
+  margin: 20px auto;
+  padding: 12px;
+}
+
+.itemCardShort:hover{
+  cursor: pointer;
+}
+
+.itemCardFull {
+  width: 400px;
+  margin: 20px auto;
+  padding: 12px;
+}
+
+.error {
+  border: 1px solid #ff5454;
+}
