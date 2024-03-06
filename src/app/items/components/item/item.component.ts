@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {myItem} from "../../item.interface";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ItemsService} from "../../items.service";
@@ -9,8 +9,9 @@ import {ItemsService} from "../../items.service";
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-  @Input() item?: myItem
+  item?: myItem
   id: string = ''
+  loading = true
 
   public deleteItem(id: string) {
     this.itemsService.deleteItem$(id).subscribe((res) => {
@@ -25,7 +26,10 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
         this.id = params["id"]
-        this.itemsService.getItemById$(this.id).subscribe( res => this.item = res)
+        this.itemsService.getItemById$(this.id).subscribe((res) => {
+          this.item = res
+          this.loading = false
+        })
       },
       (error) => {
         console.log(error)

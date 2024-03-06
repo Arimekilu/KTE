@@ -1,6 +1,10 @@
+<mat-spinner *ngIf="loading; else loaded" class="center"></mat-spinner>
+
+<ng-template #loaded>
 <div class="itemsContainer">
-  <mat-card *ngFor="let item of items" class="itemCardShort" (click)="navigateToItem(item.id)">
+  <mat-card *ngFor="let item of items" class="itemCard cursorPointer" (click)="navigateToItem(item.id)">
     <mat-card-title>{{item.title}}</mat-card-title>
     <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
   </mat-card>
 </div>
+</ng-template>

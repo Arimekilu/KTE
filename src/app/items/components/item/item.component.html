@@ -1,4 +1,7 @@
-<mat-card *ngIf="item" class="itemCardFull">
+<mat-spinner *ngIf="loading; else loaded" class="center"></mat-spinner>
+
+<ng-template #loaded>
+<mat-card *ngIf="item" class="itemCard">
   <mat-card-header>
     <mat-card-title>{{item.title}}</mat-card-title>
     <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
@@ -11,3 +14,4 @@
     <button mat-button color="warn" (click)="deleteItem(item.id)">DELETE</button>
   </mat-card-actions>
 </mat-card>
+</ng-template>

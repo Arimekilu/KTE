@@ -7,21 +7,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
-.itemCardShort {
+.itemCard {
   width: 400px;
   margin: 20px auto;
   padding: 12px;
 }
 
-.itemCardShort:hover{
+.cursorPointer:hover{
   cursor: pointer;
 }
 
-.itemCardFull {
-  width: 400px;
+.center {
   margin: 20px auto;
-  padding: 12px;
 }
+
+
 
 .error {
   border: 1px solid #ff5454;

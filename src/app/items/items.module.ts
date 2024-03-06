@@ -10,6 +10,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ItemsService} from "./items.service";
 import {HttpClientModule} from "@angular/common/http";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -19,16 +20,17 @@ import {HttpClientModule} from "@angular/common/http";
     ItemComponent,
     AllItemsComponent
   ],
-  imports: [
-    CommonModule,
-    ItemsRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    imports: [
+        CommonModule,
+        ItemsRoutingModule,
+        MatCardModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatProgressSpinnerModule
 
-  ],
+    ],
   providers: [ItemsService, HttpClientModule, ]
 })
 export class ItemsModule { }

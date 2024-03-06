@@ -24,6 +24,7 @@ export class ItemsService {
     return this.getItemById(id)
   }
 
+  // Данные приходят в формате id:{данные}, используя map преобразуем в нужный объект
   private getAllItems (): Observable<myItem[]> {
     return this.http.get('https://autorepair-c20c6-default-rtdb.europe-west1.firebasedatabase.app/items.json').pipe(
       map((response: { [key: string]: any }) => {
